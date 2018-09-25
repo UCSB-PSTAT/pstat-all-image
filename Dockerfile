@@ -66,9 +66,8 @@ RUN R --quiet -e "devtools::install_github('IRkernel/IRkernel')" && \
     R --quiet -e "IRkernel::installspec(prefix='${VENV_DIR}')"
 
 RUN R -e "install.packages(c('kableExtra', 'ROCR', 'ISLR', 'ggridges', 'rstan', 'rstanarm', 'coda', 'mvtnorm', 'loo', 'MCMCpack', 'e1071', 'ggmap', 'Rtsne', 'NbClust', 'tree', 'maptree', 'glmnet', 'randomForest', 'ROCR', 'imager', 'plotmo'), repos = 'http://cran.us.r-project.org')" && \
-    R -e "devtools::install_github("rmcelreath/rethinking")" && \
-    R - e "devtools::install_github("gbm-developers/gbm3")"
+    R -e "devtools::install_github('rmcelreath/rethinking')" && \
+    R -e "devtools::install_github('gbm-developers/gbm3')"
 
 RUN pip install jupyterhub==0.9.4
-
-CMD jupyter notebook --ip 0.0.0.0
+# CMD jupyter notebook --ip 0.0.0.0
